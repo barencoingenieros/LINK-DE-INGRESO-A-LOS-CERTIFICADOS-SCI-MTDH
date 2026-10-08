@@ -1,0 +1,265 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Grupo de WhatsApp</title>
+<style>
+  :root {
+    --bg: #eef1f8;
+    --card: #ffffff;
+    --text: #1b2033;
+    --muted: #5d6680;
+    --line: #d5daea;
+    --accent: #128c4a;
+    --accent-dark: #0d6e3a;
+    --accent-soft: #e2f5ea;
+    --error: #c0263a;
+    --error-soft: #fdecee;
+    --ok: #177a4b;
+    --ok-soft: #e4f6ec;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #10131f;
+      --card: #1a1f31;
+      --text: #eceffa;
+      --muted: #a2abc6;
+      --line: #313953;
+      --accent: #4fd18b;
+      --accent-dark: #72dea3;
+      --accent-soft: #17352a;
+      --error: #ff8593;
+      --error-soft: #3a1c24;
+      --ok: #6bdba1;
+      --ok-soft: #173326;
+    }
+  }
+  * { box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    margin: 0;
+    font-family: system-ui, -apple-system, "Segoe UI", Roboto, Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 16px;
+    line-height: 1.45;
+  }
+  main {
+    width: 100%;
+    max-width: 420px;
+    background: var(--card);
+    border: 1px solid var(--line);
+    border-radius: 18px;
+    padding: 30px 26px 26px;
+    box-shadow: 0 12px 34px rgba(20, 28, 70, .10);
+  }
+  .icon {
+    width: 54px; height: 54px;
+    border-radius: 15px;
+    background: var(--accent-soft);
+    color: var(--accent);
+    display: grid; place-items: center;
+    margin-bottom: 18px;
+  }
+  h1 { font-size: 1.42rem; margin: 0 0 6px; letter-spacing: -.01em; }
+  p.lead { margin: 0 0 22px; color: var(--muted); font-size: .96rem; }
+  label { display: block; font-weight: 600; font-size: .9rem; margin-bottom: 7px; }
+  input {
+    width: 100%;
+    font: inherit;
+    font-size: 1.22rem;
+    letter-spacing: .08em;
+    padding: 13px 14px;
+    border: 1.5px solid var(--line);
+    border-radius: 11px;
+    background: transparent;
+    color: var(--text);
+    outline: none;
+    transition: border-color .15s, box-shadow .15s;
+  }
+  input:focus { border-color: var(--accent); box-shadow: 0 0 0 4px var(--accent-soft); }
+  input::placeholder { color: var(--muted); opacity: .55; letter-spacing: .04em; }
+  button, a.btn {
+    display: block;
+    width: 100%;
+    margin-top: 14px;
+    font: inherit;
+    font-weight: 650;
+    font-size: 1.02rem;
+    text-align: center;
+    text-decoration: none;
+    padding: 13px 16px;
+    border: 0;
+    border-radius: 11px;
+    background: var(--accent);
+    color: #fff;
+    cursor: pointer;
+    transition: background .15s, opacity .15s;
+  }
+  @media (prefers-color-scheme: dark) { button, a.btn { color: #10131f; } }
+  button:hover, a.btn:hover { background: var(--accent-dark); }
+  button:disabled { opacity: .6; cursor: wait; }
+  .msg {
+    margin-top: 14px;
+    padding: 11px 13px;
+    border-radius: 10px;
+    font-size: .93rem;
+    background: var(--error-soft);
+    color: var(--error);
+  }
+  .welcome {
+    padding: 14px 15px;
+    border-radius: 12px;
+    background: var(--ok-soft);
+    margin-bottom: 16px;
+  }
+  .welcome small { color: var(--ok); font-weight: 650; font-size: .82rem; text-transform: uppercase; letter-spacing: .05em; }
+  .welcome strong { display: block; font-size: 1.14rem; margin-top: 3px; }
+  ul.courses { list-style: none; padding: 0; margin: 0 0 4px; }
+  ul.courses li {
+    padding: 9px 0;
+    border-bottom: 1px solid var(--line);
+    font-size: .95rem;
+  }
+  ul.courses li:last-child { border-bottom: 0; }
+  .sub { color: var(--muted); font-size: .88rem; margin: 12px 0 0; text-align: center; }
+  .linkbtn {
+    background: none; color: var(--muted); font-weight: 500; font-size: .9rem;
+    padding: 8px; margin-top: 8px; text-decoration: underline;
+  }
+  .linkbtn:hover { background: none; color: var(--text); }
+  [hidden] { display: none !important; }
+</style>
+</head>
+<body>
+<main>
+  <div class="icon" aria-hidden="true">
+    <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 11.5a8.4 8.4 0 0 1-12.3 7.5L3 21l2-5.5A8.4 8.4 0 1 1 21 11.5z"/></svg>
+  </div>
+
+  <section id="paso-cedula">
+    <h1>Acceso al grupo de WhatsApp</h1>
+    <p class="lead">Ingresa tu número de cédula para unirte al grupo de WhatsApp.</p>
+    <form id="form" novalidate>
+      <label for="cedula">Número de cédula</label>
+      <input id="cedula" name="cedula" type="text" inputmode="numeric" autocomplete="off"
+             maxlength="13" placeholder="0000000000" autofocus required>
+      <button id="btn" type="submit">Ingresar</button>
+      <div id="msg" class="msg" role="alert" hidden></div>
+    </form>
+  </section>
+
+  <section id="paso-ok" hidden>
+    <div class="welcome">
+      <small>Acceso verificado</small>
+      <strong id="nombre"></strong>
+    </div>
+    <ul class="courses" id="cursos"></ul>
+    <a class="btn" id="enlace" href="#" rel="noopener">Unirme al grupo</a>
+    <p class="sub" id="cuenta"></p>
+    <button type="button" class="linkbtn" id="otra">No soy yo, ingresar otra cédula</button>
+  </section>
+</main>
+
+<script>
+/* Los datos están cifrados: ni las cédulas, ni los nombres, ni el enlace
+   de la reunión aparecen en texto plano en este archivo. Solo se descifran
+   en el navegador cuando se ingresa una cédula que consta en la lista. */
+const SAL = "utFyH1ODA+HV7M+V2jVwSQ==";
+const ITER = 150000;
+const DATOS = {
+"0d13396ad42c801ca75c6d86539abe27": "hwHMB0CMobJ3JEim5ItniMZFXHPYILL3aHJWwD0hwT/loF9o+zzl6/hQ8Q31RLVRT4F4M4eKIknEcFanhX+/tgvNq/E1c0ChTq3rYd28gGC8CUm2LtL5wk1i3wIKL67POASW0SLoKra8nuAt8q8wNXrTlE9/P3dvcSfB/aIGZlcqf3Xuy8lNjALt1Yv2flCkJrLOmvfzej0=",
+"815c9ba5806fcf22a720c8643d1e6bc4": "Pb7HvWzZxoIpYqgd6XJ3EHCNS+nhE9h1wkrj1SZGBoVm3HAoEpcKPcjt3vw9LJIaDXwEwP6oX+rmpvswnCDv2eThGZ/XAid3g5i0gWAAxXVrAI0EsBBP+M9LS7zFr3z90CcGakZ3uwC33KtufJh+WEd9PXURN/GyqJYnf1k6u6gRKVhL99wuFa8YaEd9voh5yT1GXmEP4Q==",
+"84127d54bb5993d129c926a602701a14": "LmDsBa8LINiRdtUElHAKpGPV6NhjfcYhmR9KWR41hvokC1v2FX3Ex5PI6xQNXJfavBzYntEgY0G3UBiotcO8CL9KOxAtsjJ6Iey+qLhLeuGt16iWYt4+vrsLj+QZoKXQhiXFskealmFBzx67quAa8q9iJh1/MKb0NHDXMN9miDMGUC7LTmPe31sE68s0NpMZgAxQ0nA=",
+"9b024a7e6652e1d9331f4c19ddea6eae": "fMGmVjJL0EvwwNxx2VbjlsaGJ1HZSxiqit/7USHT8x07x4xbfW/SQgyZ8Z4sKLiZ64R6tcpv1+mcjRHhSk/Ma4wGSSJGhwV6JDAvPMWiV0yUzRKGAvgYYCyKPg84mzztQPUJh0+m0SBSIg7VEZRH05FPElW2cgzF3Myhv2qYh4NBgTs1bW59BNsBS29gKYaU/JZODYK3NjWtnlk=",
+"c5ba0ca2b01948e1afd97934823a081f": "Zvx6Qxj7kAKinavFO0HVK26rgHxccUx3EWtfx0g2QdveaGxOwtNjEXrfLt8JwIbg25VDNhP3oo2bG96HfIxGbSUgQKRqSpLmVw/Qwe3++o6k33R4lLFF3GmLBWfQnDPZaFo4hjqp7Tyg/tzhEyuwXOXRVzLn+m5cCgzLaMJAPx18Im/hJs5JuLvhWrg5ChsMvw6R1BGc7mCZwQ==",
+"c641d0ff04061bea7bb2d384bb0699c2": "wczA6btXb4PwGjBZyvNhE6LP5zMVr+v9IxG4ZmVy1Pnp778pBKj6/b0pNaQbe8pxZtOCuhYWomRLlYH17J+Ac2qo2K0oJkTLyqJkj60KsxJP8U+/mIReuSMVeEfGRW+dAM44g7OnpmjX6oJC+ogJeD9joF1crgSOe72d5Bv2SfPC+PbnQCfPROkATlO6wBREQLbT+KJBm0dA1A==",
+"c6b10e0e2eb3cc938f641309ed602c8b": "S96WGes0HAYL3QLUpv9xaXHKD5dCK5CntxMMh/rHwWC9XYz0I/j8mNjtlE30MgV1o5Y6xqJbMMMmjqF8A+EEQv0vgFfYJdmw7d34tWkV62UL51xvsxL3XiPCkbYaFazwhAxeM6J5r7SSTS4M+AhfT3CgK569VoPoOmmCmsA4PeMwvsy1/NA2x5KtxHAp1qFvyhqptjI=",
+"cb55dbfc0f1a4026eee23921ad811e04": "THkp6WEkG5ujaKd8jvP+lbzrSu/FjI0EG2HB4juOeE6CWSh2wa+XNE2CUNQFe+cqEoepWUfu+kSLIAz4QVgAo4GLyflBhVG5zP0HXsXvg1UMokWffAVNyKfjQnGAzmh4L8p6lc/tmed5r2hfDTP669E2gmHWjAJRJ7wy+2HGfgvS8SwTPCSEFa8sDW8Qt5z/FqWNp+T7fYBctG3QdQ==",
+"da8703d95ed65ece6bf0ccb3cc9a95a8": "vSENWFQNHb+RvhpuDqdoOgdXVwdLw1pGENPRYPZ2J+Q06+Y2FGt8VDkB2kM6yPR1ARDw2xBfdkc2akNZngpCDzlVkHaystn3e4bZFbIyfyqzbEsu6db1EGsCIamMxQNn4vAIoarwlRKXrOzeF1BKujfDl07/E+rDGze1mUBjZqxucD7QzJH1j8IvjNHUC+6fx+gIacTiHA==",
+"f2a0bb5e5937dea1eb8916ad1e203b2a": "Ku99TAb2okU5oqsUgI/kxOa/OifGmXUEeHrbMYMgwwBi9CEYjzebtJQndqfCCIpUFoWyePsTSxvrtZSVRuWr1Cu4D5wLlbZj7NqRyQR90FNPONqpWCYPi/qAhEJZsgGbDqyRVjWWsZ/EZxzPiGoIugp0DTU8vXUaY+ThYR8PdpL4myr3swB8g9Wk95e5WD5xZyuckjeB"
+};
+
+const $ = id => document.getElementById(id);
+const b64 = s => Uint8Array.from(atob(s), c => c.charCodeAt(0));
+const hex = b => Array.from(b, x => x.toString(16).padStart(2, "0")).join("");
+let temporizador = null;
+
+function normalizar(v) {
+  let d = (v || "").replace(/\D/g, "");
+  if (d.length === 9) d = "0" + d;   // cédula escrita sin el cero inicial
+  return d;
+}
+
+async function buscar(cedula) {
+  const base = await crypto.subtle.importKey("raw", new TextEncoder().encode(cedula), "PBKDF2", false, ["deriveBits"]);
+  const bits = new Uint8Array(await crypto.subtle.deriveBits(
+    { name: "PBKDF2", salt: b64(SAL), iterations: ITER, hash: "SHA-256" }, base, 384));
+  const registro = DATOS[hex(bits.slice(0, 16))];
+  if (!registro) return null;
+  const crudo = b64(registro);
+  const clave = await crypto.subtle.importKey("raw", bits.slice(16, 48), "AES-GCM", false, ["decrypt"]);
+  const claro = await crypto.subtle.decrypt({ name: "AES-GCM", iv: crudo.slice(0, 12) }, clave, crudo.slice(12));
+  return JSON.parse(new TextDecoder().decode(claro));
+}
+
+function error(texto) {
+  $("msg").textContent = texto;
+  $("msg").hidden = false;
+}
+
+function mostrar(est) {
+  $("nombre").textContent = est.n;
+  const ul = $("cursos");
+  ul.textContent = "";
+  ul.hidden = !est.c.length;
+  est.c.forEach(c => { const li = document.createElement("li"); li.textContent = c; ul.appendChild(li); });
+  $("enlace").href = est.u;
+  $("paso-cedula").hidden = true;
+  $("paso-ok").hidden = false;
+
+  let s = 3;
+  const tick = () => {
+    if (s <= 0) { clearInterval(temporizador); $("cuenta").textContent = "Abriendo WhatsApp…"; window.location.href = est.u; return; }
+    $("cuenta").textContent = "Serás redirigido en " + s + " s…";
+    s--;
+  };
+  tick();
+  temporizador = setInterval(tick, 1000);
+}
+
+$("form").addEventListener("submit", async e => {
+  e.preventDefault();
+  $("msg").hidden = true;
+  const cedula = normalizar($("cedula").value);
+  if (cedula.length !== 10) { error("La cédula debe tener 10 dígitos."); return; }
+  if (!window.crypto || !crypto.subtle) { error("Este navegador no es compatible. Abre el enlace en Chrome, Edge, Firefox o Safari actualizados."); return; }
+
+  const btn = $("btn");
+  btn.disabled = true; btn.textContent = "Verificando…";
+  try {
+    const est = await buscar(cedula);
+    if (est) mostrar(est);
+    else error("Esta cédula no consta en la lista. Revisa el número o comunícate con tu docente.");
+  } catch (err) {
+    error("No se pudo verificar la cédula. Intenta nuevamente.");
+  } finally {
+    btn.disabled = false; btn.textContent = "Ingresar";
+  }
+});
+
+$("otra").addEventListener("click", () => {
+  clearInterval(temporizador);
+  $("paso-ok").hidden = true;
+  $("paso-cedula").hidden = false;
+  $("cedula").value = "";
+  $("cedula").focus();
+});
+</script>
+</body>
+</html>
